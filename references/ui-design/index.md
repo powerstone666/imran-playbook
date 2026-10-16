@@ -13,6 +13,6 @@ Always read `material-design-3.md` first. Then add the platform file and any top
 | Choosing or styling UI components, interactive state checklist | `components.md` |
 | Layout, spacing, density, and responsive structure | `layout.md` |
 | Color, typography, shape, and elevation | `visual-system.md` |
-| Interaction behavior, motion, usability, accessibility | `interaction-accessibility.md` |
+| Interaction behavior, motion, GSAP animation, usability, accessibility | `interaction-accessibility.md` |
 
 Platform files are not alternatives: a web app gets `material-3-web.md`, an Android app gets `pixel-android.md`. A web page meant to look like an Android phone screen gets both.

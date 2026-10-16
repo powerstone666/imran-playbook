@@ -26,7 +26,7 @@ If a task needs exact component specs, states, tokens, or platform details, cons
 - Use typography roles, not one-off font sizes.
 - Use shape consistently across related surfaces.
 - Use elevation to communicate surface hierarchy, not decoration.
-- Use motion to explain state changes, not to distract.
+- Use motion to explain state changes, not to distract. For animation tooling (CSS vs GSAP and the official GSAP skills), see `interaction-accessibility.md`.
 - Support responsive layouts (see `layout.md`).
 
 ## Implementation habit
