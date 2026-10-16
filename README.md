@@ -27,7 +27,7 @@ npx skills update -g
 | Code review | [`references/code-reviewer/`](references/code-reviewer/) | Full review of a diff, branch, or PR with a numbered report, plus a quick self-review checklist |
 | Project memory | [`references/memory/`](references/memory/) | A shared `knowledge.md` so different agents can hand off work and avoid editing the same files |
 | Package installation | [`references/package-installation/`](references/package-installation/) | npm only, `@latest`, no new dependency for a few lines of code |
-| UI design | [`references/ui-design/`](references/ui-design/) | Material Design 3, restrained Tailwind web UI without AI-slop, Pixel-style Android UI, accessibility |
+| UI design | [`references/ui-design/`](references/ui-design/) | Material Design 3, restrained Tailwind web UI without AI-slop, Pixel-style Android UI, accessibility, GSAP animation, Three.js 3D |
 | Next.js | [`references/nextjs/`](references/nextjs/) | Version check, `app/` folder structure, API routes, UI-to-backend client boundary, prompts in `.txt` files |
 | LangChain | [`references/langchain/`](references/langchain/) | Setup, prompts, parsers and Zod, agents, RAG with Pinecone, retriever tools |
 | LangGraph | [`references/langgraph/`](references/langgraph/) | Graphs, state and reducers, routing and commands, subgraphs |
