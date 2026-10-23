@@ -8,7 +8,7 @@ Apply it to avoid generic AI-generated websites, overused gradients, glassmorphi
 
 - Use Tailwind CSS for styling.
 - Use Radix UI, Ark UI, or native accessible components for behavior.
-- Use Material Symbols or Lucide icons.
+- Use a reputable icon library and the rules in `icons-and-labels.md`: matching icons, no text characters as icons, no default chips.
 - Prefer semantic HTML.
 - Use ARIA only when needed.
 
@@ -24,6 +24,7 @@ Do not use:
 - Fake dashboards filled with made-up metrics that do not reflect the product.
 - Oversized glowing buttons.
 - Meaningless cards.
+- Text characters (`->`, `+`, `✓`) or emoji as icons, one icon reused everywhere, and chips or pills on plain text.
 - Inconsistent border radius.
 - Low-contrast text.
 - Cramped spacing (see density guidance in `layout.md`).

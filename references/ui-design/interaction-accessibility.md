@@ -10,7 +10,7 @@ Official foundations reference: https://m3.material.io/foundations
 - Use clear focus indicators for keyboard navigation.
 - Keep primary actions easy to find.
 - Avoid surprising navigation or hidden destructive actions.
-- Show loading feedback for async actions.
+- Show loading feedback for async actions. Buttons and pages must follow the button rules in `components.md`.
 - Show errors in context and make recovery clear.
 
 ## Motion

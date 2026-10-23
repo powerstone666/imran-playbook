@@ -5,7 +5,7 @@ Use this to review code changes without editing them. Collect the request detail
 This is the only code review reference. It has two modes:
 
 - **Full review** of a diff, branch, or PR: follow the whole workflow below and return the report in `report-template.md`.
-- **Self-review** of your own change before finishing: skip Required Inputs and the report; run the Maintainability Checklist and the validation step, then fix what you find.
+- **Self-review** of your own change before finishing: skip Required Inputs (do not ask questions) and the report; run the Maintainability Checklist and the validation step, then fix what you find.
 
 ## Maintainability Checklist
 
@@ -22,7 +22,9 @@ This is the only code review reference. It has two modes:
 
 ## Required Inputs
 
-Before starting the review, ask for any missing items:
+This is a hard gate. Do not read the diff, run commands, or start the review until the inputs below are settled.
+
+Needed inputs:
 
 - Feature or bug description
 - Source branch or PR reference
@@ -30,9 +32,13 @@ Before starting the review, ask for any missing items:
 - Acceptance criteria
 - Areas requiring special attention
 
-If the user omits one of these, ask concise follow-up questions before continuing. If a PR reference is unavailable locally, ask for the source branch or a checked-out worktree instead of guessing.
+Steps:
 
-If the user names no review target at all, default to the uncommitted changes, or the last commit if there are none.
+1. Check what the user's message and the repo (`git branch --show-current`, `git status`) already answer. Pre-fill what you can, such as the current branch as the source and `main` as the base.
+2. Ask about everything still missing with the `AskUserQuestion` tool, in one call of up to 4 questions. Offer your pre-filled guess as the first option, marked "(Recommended)", and let the user pick "Other" to type their own answer. If the tool is not available, ask the same questions as a short numbered list and stop until the user replies.
+3. Always ask for acceptance criteria and special-attention areas unless the user already gave them; the repo cannot answer these.
+4. Only skip asking if the user says to review right away (for example "just review it"). Then state your assumptions in the report. If a PR reference is unavailable locally, ask for the source branch or a checked-out worktree instead of guessing.
+5. If the user names no review target at all, ask which to review: uncommitted changes, the last commit, or a branch. Recommend uncommitted changes, or the last commit if there are none.
 
 ## Guardrails
 

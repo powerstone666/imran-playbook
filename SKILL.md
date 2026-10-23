@@ -1,9 +1,9 @@
 ---
 name: imran-playbook
-description: Use this skill for Imran's preferred engineering workflow, coding style, project memory process, JavaScript package installation rules, UI design with Google Material Design 3 or Pixel-style Tailwind web UI, Next.js app structure, LangChain/LangGraph implementation notes, code review, and senior clean-code maintainability rules. Trigger when working in Imran's projects, changing code, reviewing a diff or PR, designing UI, applying Material Design 3, avoiding generic AI-generated web UI, adding GSAP animation or Three.js 3D, installing JS/TS packages, building Next.js apps, adding AI agent/RAG workflows with LangChain or LangGraph, or when the user asks to follow Imran's playbook or approach.
+description: Use this skill for Imran's preferred engineering workflow, coding style, project memory process, JavaScript package installation rules, UI design with Google Material Design 3 or Pixel-style Tailwind web UI, Next.js app structure, LangChain/LangGraph implementation notes, code review, agent swarms for research and large changes, and senior clean-code maintainability rules. Trigger when working in Imran's projects, changing code, reviewing a diff or PR, designing UI, applying Material Design 3, avoiding generic AI-generated web UI, adding GSAP animation or Three.js 3D, building a webOS, comic-style, or other illustration-led site, choosing icons or labels, installing JS/TS packages, building Next.js apps, adding AI agent/RAG workflows with LangChain or LangGraph, or when the user asks to follow Imran's playbook or approach.
 metadata:
   short-description: Imran's engineering playbook and reference router
-  version: "1.2.0"
+  version: "1.4.0"
   owner: imran
   reference-root: references/
 ---
@@ -13,7 +13,9 @@ metadata:
 This skill is the entry point for Imran's preferred way of building software.
 Use it as a router: read this file first, identify the task domain, then load only the smallest set of topic files that covers the task.
 
-When a reference's trigger matches the task, it is a rule, not a suggestion. When this skill is active and another installed skill covers the same topic (for example general clean-code, code review, or frontend design skills), this skill's references win.
+When a reference's trigger matches the task, it is a rule, not a suggestion.
+
+This skill adds to other installed skills; it never replaces them. If other installed skills also cover the task (for example framework best-practice, performance, or composition skills), invoke them in the same turn as this one, even when this skill already has a topic file for the area. Only when another skill and a reference here give conflicting instructions on the same point does this skill's reference win; everything else from the other skill still applies.
 
 ## Core Prompt
 
@@ -38,10 +40,13 @@ When this skill is active:
 | Naming, constants, magic values | `references/senior-dev/naming.md` | `references/senior-dev/maintainability.md` | Domain naming and readable constants |
 | Commit message or commit context | `references/senior-dev/commits.md` | — | Specific commit summary, changed files, validation, risks |
 | Code review: a diff, branch, or PR, or a self-review / final quality pass on your own change | `references/code-reviewer/index.md` | `references/code-reviewer/report-template.md` for full reviews | Full review with validation and a report, or a quick self-review checklist |
+| Research, reading a large codebase, large changes, or feature requests where the design is unclear | `references/agent-swarm/index.md` | `references/senior-dev/workflow.md` | Cheap parallel workers (smallest available model) explore and debate, the main model reasons over their reports and plans, then independent pieces can be edited in parallel. Workers get named roles; ask the user when the swarm shape is unclear; offer an HTML artifact to visualise decisions. Skip for straightforward tasks |
 | Long, risky, multi-step, or resumed work, or a repo shared with other agents | `references/memory/index.md` | — | Shared `knowledge.md` for handoffs and cross-agent collaboration |
 | JavaScript or TypeScript package installation | `references/package-installation/npm.md` | Relevant framework topic file | npm only, `@latest`, `--legacy-peer-deps` only after peer conflicts |
-| Any UI design, visual polish, or component styling | `references/ui-design/material-design-3.md` | `components.md`, `layout.md`, `visual-system.md`, `interaction-accessibility.md` (motion and GSAP animation) in `references/ui-design/` | Material Design 3 principles, components, layout, visual system, accessibility |
+| Any UI design, visual polish, or component styling | `references/ui-design/design-intake.md` (new UI or full redesign: ask first), then `references/ui-design/material-design-3.md` | `components.md`, `icons-and-labels.md`, `layout.md`, `visual-system.md`, `interaction-accessibility.md` (motion and GSAP animation) in `references/ui-design/` | Material Design 3 principles, components, layout, visual system, accessibility |
 | Web UI (HTML/Tailwind), including Pixel-inspired web UI or AI-slop prevention | `references/ui-design/material-design-3.md`, then `references/ui-design/material-3-web.md` | The matching UI topic file | Restrained Material 3 web UI, Tailwind tokens, root product showcase |
+| WebOS or desktop-style website, a site that looks like an operating system | `references/ui-design/webos.md` | `references/ui-design/material-3-web.md`, `layout.md`, `interaction-accessibility.md` | Desktop shell, windows, icons, playful brand style; view the live reference site with the browser skill (`references/ui-design/viewing-reference-sites.md`) |
+| Comic-style sites: illustrated webcomic, retro print comic (Ben-Day dots), manga comic panels | `references/ui-design/illustrated-webcomic.md`, `retro-print-comic.md`, or `manga-comic-panels.md` (the one the user chose) | `references/ui-design/design-intake.md`, `components.md`, `visual-system.md` | Playful illustration-led styles; view each live reference site with the browser skill (`references/ui-design/viewing-reference-sites.md`) |
 | 3D in web UI: Three.js, WebGL, model viewers, 3D scenes | `references/ui-design/threejs.md` | `references/ui-design/interaction-accessibility.md` for GSAP UI animation | When 3D belongs, Three.js skills, Next.js cleanup, performance, accessibility |
 | Android app UI, Material You, Material 3 Expressive, or a web mockup of an Android screen | `references/ui-design/material-design-3.md`, then `references/ui-design/pixel-android.md` | `components.md`, `visual-system.md` | Pixel Android visual direction, rounded surfaces, pill controls |
 | Next.js app or App Router work | `references/nextjs/version-check.md`, `references/nextjs/structure.md` | The matching file from `references/nextjs/index.md` | Version-sensitive Next.js coding and folder structure |
@@ -50,6 +55,7 @@ When this skill is active:
 
 ## Selection Rules
 
+- Loading another skill never means skipping a topic file here, and loading a topic file here never means skipping another skill.
 - If the repo reveals a framework after inspection, load its matching topic file before making related edits.
 - If the task spans multiple domains, load the small set that covers all of it. Example: a Next.js RAG route loads `nextjs/version-check.md`, `nextjs/structure.md`, `nextjs/api-routes.md`, `nextjs/prompts-config.md`, `langchain/rag-pinecone.md`, `senior-dev/workflow.md`, and `senior-dev/change-ladder.md`.
 - Use memory files only when durable context is useful. Do not block small tasks on `knowledge.md` or session-file ceremony.

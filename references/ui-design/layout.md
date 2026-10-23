@@ -13,6 +13,15 @@ Official foundations reference: https://m3.material.io/foundations
 - Avoid overcrowding dense screens; use spacing to separate meaning.
 - Avoid oversized decorative layouts for operational tools.
 
+## Cutout navbar and content width
+
+The default navbar is the cutout navbar: inset from the screen edges (floating, with side margins and rounded corners), not a bar that touches the edges.
+
+- The page body aligns to the cutout: same left and right edges, same max width. Put the navbar and the content in one shared container, or one shared width token, so they cannot drift apart.
+- Use a full-width navbar only when the user explicitly asks for it.
+- Content may go edge to edge only in rare cases, where matching the cutout width would make the UI look strange or not fit (for example a full-bleed hero image, a map, a wide data table, or a canvas). Keep text and controls inside the cutout width even then, and let only the one wide element break out.
+- Do not let some sections match the cutout and others use a different width without a reason like the one above.
+
 ## Responsive guidance
 
 - Design for compact, medium, and expanded widths.

@@ -2,6 +2,10 @@
 
 Use this when preparing a commit message, commit summary, or commit context.
 
+## Before committing or pushing
+
+When the user asks to commit or push, review the changes first (see "Review before you finish or commit" in `workflow.md`). Commit only after the review is done and its findings are handled.
+
 ## Commit message rules
 
 - State what changed and why.

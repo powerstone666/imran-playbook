@@ -12,6 +12,20 @@ Prioritize clarity, testability, and safe evolution over cleverness.
 5. Validate behavior with tests or reproducible checks.
 6. Leave the codebase easier to understand than before.
 
+## Review before you finish or commit
+
+Invoke the `code-reviewer` skill with the Skill tool in both cases (`../code-reviewer/index.md` is its reference if the skill is not installed):
+
+- **Large work is done.** Large means many files, several modules or layers, a swarm that edited in parallel, or a change you could not hold in your head. Review it before you report done.
+- **The user asks to commit or push.** Review the changes first, then commit. This applies to any size of change.
+
+How to run it:
+
+- Let the skill run its own flow, including its questions to the user. Do not answer its required inputs for it or skip them.
+- Fix the high and medium findings, or show them to the user and ask which to fix, then re-validate the happy path before committing.
+- Do not commit or push while a high finding is open unless the user says to.
+- Report the review result (score and deployment risk) in your final message.
+
 ## Smallest complete change
 
 - Write as little new code as possible, but finish every part the task needs, including the callers, tests, and fixtures the change breaks.
@@ -29,6 +43,10 @@ Minimal code never removes or skips:
 - Accessibility.
 - Calibration or tuning that real hardware needs.
 - Anything the user explicitly asked for.
+
+## Protect the happy path
+
+Every edit must leave the main, expected flow working. Before and after each edit, name the happy path the code serves (for example "user submits the form and sees the result") and confirm it still works. Do not let a new branch, validation, refactor, or cleanup break it; if the change needs to alter it, say so explicitly. Run the check that exercises that flow (test, type check, build, or a manual run) before you report done.
 
 ## Operating principles
 
