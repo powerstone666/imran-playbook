@@ -2,27 +2,29 @@
 
 The main (big) model should think with code context in hand, not spend its context collecting that context. When a task needs more reading than a few targeted lookups, launch a swarm of small, cheap models to explore in parallel, then reason over their results. When the change itself is large and splits cleanly, the same swarm can edit in parallel after the main model has set the plan.
 
-## When to use a swarm
+## When a swarm is required
 
-Use it for:
+The swarm is not optional when any of these is true. Do not judge by how big the repo feels; judge by how much you would have to read.
 
-- Research: how does X work, where is Y used, what are the options for Z.
-- Reading or mapping a large or unfamiliar codebase.
-- Large changes or refactors that touch many files or layers.
-- Feature requests where the right design is not obvious yet.
-- Any moment you would otherwise run many repeated greps, diffs, or file reads that soak up context.
+- The request is to read, summarise, map, or audit **more than 8 files or about 1,000 lines**, or it says "every file", "whole repo", "the repo", or "the codebase".
+- You would run **many repeated reads, greps, or diffs** to answer one question.
+- It is **research** across several areas (how does X work, where is Y used, what are the options for Z).
+- It is a **large change or refactor** touching many files or layers, or a **feature request** where the design is not obvious.
 
-Do not use it for:
+A small documentation repo still counts. File count and lines read decide it, not the kind of repo.
 
-- A straightforward task: a one-file fix, a rename, a small edit where you already know the files. Do it directly; a swarm only adds cost.
-- A question you can answer with one or two lookups.
+Skip the swarm only when the task is truly small: a one-file fix, a rename, a small edit in files you already know, or a question that one or two lookups answer.
 
-If unsure, do one quick lookup first. If it does not settle the question, launch the swarm.
+## Swarm check (do this before the first read)
+
+Before you read anything for a task like this, write one line: `Swarm: yes, because <reason>` or `Swarm: no, because <reason>`. Count the files and lines first if you are unsure. Say it every time, so the choice is never made silently.
+
+If you are unsure, use the swarm. A swarm that was not needed costs a little; reading everything yourself costs your whole context.
 
 ## How to run it
 
 1. **Split the question** into 2 to 5 independent angles (for example: data flow, existing helpers to reuse, tests and callers, risks, alternative designs). Each angle is one worker with its own role (see Give every worker a role). Fewer angles beat many overlapping ones.
-2. **Pick the worker model from what is available.** Do not assume a model name. Look at the models this session offers (the `model` options on the `Agent` tool, or any the user names) and choose the smallest, cheapest one that can read code and follow a brief. Prefer a smaller model over a larger one whenever the angle is only reading and reporting. If only one model is available, use it.
+2. **Pick the worker model from what is available.** Do not assume a model name. Look at the models this session offers (the `model` options on the `Agent` tool, or any the user names) and choose the smallest, cheapest one that can read code and follow a brief (in plain terms, the cheapest model that can still read files and report back). Prefer a smaller model over a larger one whenever the angle is only reading and reporting. If only one model is available, use it.
 3. **Launch workers in parallel** in a single message with the `Agent` tool, passing the chosen model. Use the read-only `Explore` agent type for pure reading; use `general-purpose` when the worker needs skills or must run commands. In the research phase workers never edit files.
 4. **Brief each worker fully**, because it sees nothing else: the goal, the one angle it owns, the files or areas to start from, what you already know or ruled out, and the exact shape of the answer (short, with `file_path:line` references, facts separated from guesses).
 5. **Give workers the skills.** Name the skills they should invoke for their angle (for example the matching framework or `imran-playbook` topic skills) so their findings follow the same rules you will code with. Tell them to read the relevant reference files, not to skim.
