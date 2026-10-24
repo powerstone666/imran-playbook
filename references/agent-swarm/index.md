@@ -68,6 +68,43 @@ For a decision, a debate, or any run where the user benefits from watching or co
 - Publish it as soon as the workers launch, with every worker marked running. Republish the same file path as reports arrive so the same link updates, and make the last version show the decision and why.
 - If you are unsure whether the user wants this, ask with `AskUserQuestion` ("Do you want a visual page of the swarm running?") before launching. Do not publish unasked for a plain research swarm.
 
+## Cross-agent bridge (only when it earns its place)
+
+If the `crossagentbridge` MCP tools are present in this session, other agents (other models or tools, running outside this session) can join a swarm as workers. The bridge is an escape hatch for swarm work, not the default way to run one.
+
+**Use it only when one of these is true:**
+
+- The user asked for it, or named another agent.
+- The task is too heavy for the in-session swarm: the work needs more parallel hands than the session's own models give, or it is something this session's models cannot do or reason about well and another agent is better at.
+- Your own context is running low and the remaining reading or editing can be handed off.
+
+**Do not use it** on every swarm, for small swarms, or because the tools happen to exist. The ordinary swarm above is the first choice. If the MCP tools are absent, skip this section and carry on without it.
+
+**Treat bridged agents as ordinary workers.** A bridged agent is a worker like a Haiku explorer: it gets a named role, a full brief, an exclusive file list if it edits, and its report is a lead to verify, not a fact. No special trust, no special ceremony, no extra approval steps because it came over the bridge. Use the bridge's room, task, and file-claim tools only as far as needed to hand out the work and stop two workers touching the same file.
+
+**Bridged agents can run their own swarms.** They are often specialised frontier models with their own sub-agents. When work is handed to one (because the user asked, or the task is too heavy for this session), do not make it do the whole piece alone in one thread. In the brief, tell it to:
+
+- Split its piece into independent angles and spawn its own sub-agents to work them in parallel, as evenly as the work allows, using the cheapest model it has that can do each role.
+- Load and follow the imran-playbook skill, and pass the same instruction to every sub-agent it spawns. Every agent in the swarm, here or across the bridge, has the playbook, so they all work to the same rules (this file, `../senior-dev/workflow.md`, the UI and package rules).
+- Keep its sub-agents inside the piece and the exclusive file list it was given; no two agents touch the same file.
+- Return conclusions with `file_path:line` references, not dumps, with facts separated from guesses.
+
+**How to handle other frontier models.** They are peers in capability, not subordinates, but in this swarm they are still workers. Give them the goal, the boundaries, and the shape of the answer, then let them choose how to do it inside those. Do not micromanage their method or re-explain what the playbook already says; point to it. Expect different habits and strengths from different models, so do not assume one agent's report matches another's format. Fix that by stating the answer shape in the brief, and verify the cited lines yourself before relying on anything. Disagreement between two strong agents is a debate to resolve with evidence, not something to settle by deferring to either.
+
+**Hand off side requests so you stay on task.** If you are mid-task and the user asks for something on the side (review this diff, run the tests, check a second question), do not drop your work and do not spend your context on it. When the bridge is present, hand it to a bridged agent with a full brief (the goal, the files, the answer shape) and carry on. Good fits are reviews, test and build runs, and read-only checks. Keep the main thread on the main task, and fold the result in when it arrives. If the side request changes the plan itself, that is yours to decide, not the worker's.
+
+**Do the handshake first.** The bridge has setup steps before an agent can take work: check which agents are online (`list_agents`), set up or join a room, invite the agent, and read the room onboarding and setup the bridge returns. Before inviting, check whether the agent is already available: already a member of the room (`list_room_members`) or already online and ready. If it is, do not invite it again; use it as it is. Invite only agents that are missing. Let the steps finish and follow what the bridge asks for. Do not skip them or send work to an agent that has not joined. Handing off before the handshake completes means the work goes nowhere. While it completes, keep working on your own part.
+
+**Use the agents that are there, efficiently.** Up to three bridged agents may be available. Match them to the work instead of defaulting to a count:
+
+- **Look first.** See who is online and what each is good at before assigning anything.
+- **One agent** is right when there is a single separable piece, such as one review or one test run. Do not leave capable agents idle when the work clearly splits.
+- **Two or three agents** are right only when the work has that many independent pieces with different roles (for example reviewer, tester, mapper), each with its own files or question.
+- **Never bombard.** Do not send the same task to all of them, split a small task three ways, or give agents overlapping scope. More agents means more reports to verify and more seams to integrate, so each one must own a distinct piece.
+- **Match strength to role.** Give each agent the piece it is best at. If two are equally suited, give the larger or riskier piece to the stronger one, and keep the others on lighter pieces.
+
+**Never block on it.** After handing work over, continue your own part of the task. Do not sit waiting for a bridged worker; collect its report when it arrives and fold it in. If a worker is slow or silent, finish without it or take that piece yourself, and say so.
+
 ## Rules
 
 - Research workers are read-only; only editing workers in step 8 write files, and only inside the files they were given.
