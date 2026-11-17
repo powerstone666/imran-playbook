@@ -14,6 +14,18 @@ Visual reference: the live Framer template at https://peaceful-cantaloupe-258048
 
 The page is built from comic panels, and a mascot character leads it. Headlines are big, italic, and slanted, and every surface is drawn with thick outlines and offset shadows. The tone is energetic and fun, with game touches.
 
+## Anime style fidelity
+
+- Treat anime and manga as visual directions, not as requests to copy a particular franchise. Do not refuse or flatten a request just because it uses words like "anime," "manga," or names an inspiration.
+- Preserve the visual medium the user asks for. If they request 2.5D anime, use dimensional anime illustration, layered scenes, expressive poses, cinematic lighting, and anime-style motion. Do not switch to pixel art, Minecraft-like characters, generic flat icons, or another medium unless they ask for it.
+- When the user names an anime, comic, character, or franchise as a reference, research its visual themes and the specific qualities the user wants, then proceed with the website and original artwork. Do not wait for the user to provide a finished design or character art unless they explicitly want to supply it.
+- When the user names a character or franchise for a website, research the character's appearance, abilities, themes, and history without asking the user to request that research. First check whether a specific public-domain version is available in the relevant jurisdiction. If so, use only details supported by that version and avoid features added in later adaptations.
+- If no suitable public-domain version is available, continue with an original spoof or parody character based on the broad premise, archetype, or themes. Make its identity and expression distinct: create an independent silhouette, face, costume, symbols, name, palette, and ability details. Do not reproduce the recognizable design with only small changes, and do not claim that calling something a spoof automatically resolves rights concerns.
+- A public-domain version is the first choice when it is verified and the available tools allow it; do not turn every franchise request into a spoof by default. If an image-generation tool blocks a verified public-domain depiction, do not repeatedly reword or disguise the same request to get around the block. State briefly that the tool blocked image generation, then continue the UI with a distinct original spoof/parody based on broad themes, or use a clearly marked placeholder if the user needs to approve the fallback.
+- Keep any limitation narrow and the visual direction intact. Whether using a public-domain version or an original spoof/parody, preserve the requested anime look, scene, composition, mood, and animation. Do not reject the whole website, wait for the user to propose the workaround, or silently substitute an unrelated style.
+- For generated artwork, make each image distinct and tailored to its placement. Do not reuse one image as multiple characters, poses, or scene assets. Keep designed backgrounds visually rich with layered SVG details and scene elements; do not leave them blank.
+- Build visible animation when requested: use separate poses or layered artwork for character motion, plus scroll, hover, or scene transitions where they fit. Do not treat a static pixel sprite or a generic CSS wiggle as a substitute for requested anime character animation.
+
 ## Look
 
 - **Palette:** saturated, flat, and bright on a clean off-white page: hot pink, electric cyan, sunny yellow, violet, and mint, with a very dark navy for ink, text, and outlines. Define them as tokens, and use the navy for every outline and for body text.
@@ -29,7 +41,7 @@ The page is built from comic panels, and a mascot character leads it. Headlines 
 ## Build rules
 
 1. **Tokens first:** navy ink, off-white paper, 4 to 5 accents, one border width, one offset-shadow size (in a colour, not blur), and one skew angle. Components use only these.
-2. **Art is supplied.** The mascot and card art must come from the user or an approved source. Never hand-draw SVG characters or fake the art. Without art, build the panels with marked placeholders and say so.
+2. **Art has a clear source.** Use user-supplied artwork when provided; otherwise create distinct original anime-style artwork with an available image-generation tool. Do not imitate a reference mascot or pass placeholder shapes off as finished character art. If image generation is unavailable, use clearly marked placeholders and state that the artwork remains to be created.
 3. **Panels are CSS.** Use `clip-path` or `transform: skew()` for angled panels, `repeating-conic-gradient` for speed lines, and `radial-gradient` for dots. Keep panel content readable by keeping text blocks un-skewed inside the skewed container.
 4. **Offset shadows are solid** (zero blur), and shift on press for the bouncy press in `components.md`.
 5. **Colour discipline:** each panel or card uses one accent family, and text on it is navy or white, whichever passes contrast.

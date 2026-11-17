@@ -21,14 +21,17 @@ This skill adds to other installed skills; it never replaces them. If other inst
 
 When this skill is active:
 
-1. Inspect the task, repo context, and technology enough to identify the domain and existing conventions.
-2. Select the smallest relevant set of topic files from the routing table below.
-3. Read each selected file completely before implementing; do not skim it.
-4. Follow the selected references as task rules, not as loose inspiration.
-5. Preserve existing project conventions unless a selected reference explicitly says it overrides them.
-6. Implement the smallest coherent change at the outermost layer that solves it correctly (`references/senior-dev/change-ladder.md`).
-7. Validate with tests, type checks, builds, or focused manual checks whenever practical.
-8. Report what changed and what was validated, then end with one or two lines: what you skipped or did not check, and any risk the user must know.
+1. Identify every applicable installed skill from its trigger, including this playbook and any framework, platform, or tool skill. Read each applicable skill's instructions before doing its work; skills are additive unless they directly conflict on the same rule. Do not silently skip a relevant skill because a topic file seems sufficient.
+2. Inspect the task, repo context, and technology enough to identify the domain and existing conventions. For large or research-heavy work, make the swarm decision before the first repository read, as required by `references/agent-swarm/index.md`.
+3. Select the smallest relevant set of topic files from the routing table below.
+4. Read each selected file completely before implementing; do not skim it.
+5. Follow the selected references as task rules, not as loose inspiration.
+6. Preserve existing project conventions unless a selected reference explicitly says it overrides them.
+7. Implement the smallest coherent change at the outermost layer that solves it correctly (`references/senior-dev/change-ladder.md`).
+8. Validate with tests, type checks, builds, or focused manual checks whenever practical.
+9. Report what changed and what was validated, then end with one or two lines: what you skipped or did not check, and any risk the user must know.
+
+If a relevant skill or reference cannot be accessed, say which one and why; do not imply it was followed.
 
 ## Reference Routing Table
 
