@@ -23,11 +23,13 @@ npx skills update -g
 
 | Area | Folder | Covers |
 | --- | --- | --- |
-| Engineering workflow | [`references/senior-dev/`](references/senior-dev/) | Scope mapping, smallest complete change, change ladder (which layer to touch), reuse before writing, functions, naming, testing, commits |
+| Engineering workflow | [`references/senior-dev/`](references/senior-dev/) | Scope mapping, smallest complete change, new branch per task, merge only after approval, change ladder (which layer to touch), reuse before writing, functions, naming, testing, commits |
+| New project lifecycle | [`references/sdlc-lifecycle/`](references/sdlc-lifecycle/) | Consultant-led requirements gathering, current stack research, storyboard and plan reviews, homepage prototype, iterative build, feedback, testing, and support handoff |
 | Code review | [`references/code-reviewer/`](references/code-reviewer/) | Full review of a diff, branch, or PR with a numbered report, plus a quick self-review checklist |
 | Agent swarm | [`references/agent-swarm/`](references/agent-swarm/) | For research, large codebases, and large changes: cheap parallel workers explore and debate, the main model plans, and independent pieces can be edited in parallel |
 | Project memory | [`references/memory/`](references/memory/) | A shared `knowledge.md` so different agents can hand off work and avoid editing the same files |
 | Package installation | [`references/package-installation/`](references/package-installation/) | npm only, `@latest`, no new dependency for a few lines of code |
+| Database | [`references/database/`](references/database/) | Always asks ORM vs raw queries, local vs cloud, and engine (default SQLite) first; one `.sql` file per table under `db/` (`user.sql`, `message.sql`) instead of one big schema file; queries live in services, no migrations or seeds by default |
 | UI design | [`references/ui-design/`](references/ui-design/) | Design intake (asks theme mode, style, colours first), Material Design 3, restrained Tailwind web UI without AI-slop, Pixel-style Android UI, webOS desktop-style sites, three comic styles (illustrated webcomic, retro print comic, manga panels) each with a live reference site to view with the browser skill, icons and labels (no text-glyph icons, no default chips), accessibility, GSAP animation, Three.js 3D |
 | Next.js | [`references/nextjs/`](references/nextjs/) | Version check, `app/` folder structure, API routes, UI-to-backend client boundary, prompts in `.txt` files |
 | LangChain | [`references/langchain/`](references/langchain/) | Setup, prompts, parsers and Zod, agents, RAG with Pinecone, retriever tools |
