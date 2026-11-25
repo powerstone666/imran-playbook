@@ -37,7 +37,7 @@ If a relevant skill or reference cannot be accessed, say which one and why; do n
 
 | Task signal | Read first | Also read when relevant | Use for |
 | --- | --- | --- | --- |
-| Any code change, refactor, bug fix, or feature | `references/senior-dev/workflow.md`, `references/senior-dev/change-ladder.md` | The matching file from `references/senior-dev/index.md` | Senior engineering workflow, scope mapping, layer choice, reuse before writing, maintainable implementation |
+| Any code change, refactor, bug fix, or feature | `references/senior-dev/workflow.md`, `references/senior-dev/change-ladder.md` | The matching file from `references/senior-dev/index.md` | Senior engineering workflow, ask which branch to use (current, new, or the user's), scope mapping, layer choice, reuse before writing, maintainable implementation |
 | Choosing OOP/classes vs functional style | `references/senior-dev/class-vs-function.md` | `references/senior-dev/functions.md`, `references/senior-dev/testing.md` | Classes for cohesive services, functions for stateless logic |
 | Function design, parameters, return shape, nesting | `references/senior-dev/functions.md` | `references/senior-dev/testing.md` | Small functions, early returns, object parameters and returns |
 | Naming, constants, magic values | `references/senior-dev/naming.md` | `references/senior-dev/maintainability.md` | Domain naming and readable constants |

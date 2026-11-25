@@ -13,6 +13,7 @@ Use this folder for writing code, code quality, maintainability, refactoring, re
 | Naming variables, functions, files, or abstractions | `naming.md` |
 | Improving testability or side-effect boundaries | `testing.md` |
 | Clean-code examples and anti-patterns | `maintainability.md` |
+| Choosing which branch to work on before implementing | `workflow.md` (Branching) |
 | Preparing commit message or commit context | `commits.md` |
 | Code review or self-review / final quality pass | `../code-reviewer/index.md` |
 

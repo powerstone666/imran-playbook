@@ -5,12 +5,27 @@ Prioritize clarity, testability, and safe evolution over cleverness.
 
 ## Workflow
 
-1. Clarify intent, constraints, and non-goals before editing.
+1. Clarify intent, constraints, and non-goals before editing. Settle which branch to work on (see Branching below).
 2. Map the scope: read the code the task touches and list every place the change must reach (callers, tests, fixtures, config, exports). Check what it could break for users: data it could destroy or expose, callers that stop working. That is the scope; extra features are not.
 3. Design the smallest complete change using the reuse ladder in `change-ladder.md`.
 4. Implement for readability first, then optimize if required.
 5. Validate behavior with tests or reproducible checks.
 6. Leave the codebase easier to understand than before.
+
+## Branching
+
+Before implementing anything (feature, fix, refactor, or docs change), ask the user where the code should go. Use `AskUserQuestion`, and name the current branch in the question.
+
+1. **Current working branch** (the one checked out now).
+2. **A new branch**, named after the work (for example `feat/user-schema`, `fix/login-redirect`). Suggest a name and let the user change it.
+3. **A branch the user names.** If it exists, check it out; if it does not, create it from the up-to-date base.
+
+Rules:
+- Recommend a new branch when the current branch is `main` or `dev`, and the current branch when it is already a feature branch for this work. Mark your recommendation "(Recommended)".
+- Do not edit, commit, or push until the user has answered. Skip the question only when the user already named the branch in the request, or this session already settled it.
+- If the working tree has uncommitted changes, say so before switching branches, and do not discard them.
+- Do not merge, push to `main` or `dev`, or delete a branch unless the user asks.
+- Keep the answer for the rest of the task. Ask again only for a new task.
 
 ## Review before you finish or commit
 
