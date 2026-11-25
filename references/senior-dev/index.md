@@ -14,7 +14,7 @@ Use this folder for writing code, code quality, maintainability, refactoring, re
 | Improving testability or side-effect boundaries | `testing.md` |
 | Clean-code examples and anti-patterns | `maintainability.md` |
 | Choosing which branch to work on before implementing | `workflow.md` (Branching) |
-| Preparing commit message or commit context | `commits.md` |
+| Preparing commit message or commit context (never add an agent as co-author) | `commits.md` |
 | Code review or self-review / final quality pass | `../code-reviewer/index.md` |
 
 Default for code changes: read `workflow.md` and `change-ladder.md`, then the most specific topic file. If the implementation introduces services, clients, processors, or reusable modules, also read `class-vs-function.md`.
