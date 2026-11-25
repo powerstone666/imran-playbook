@@ -24,10 +24,17 @@ Motion reference: https://m3.material.io/styles/motion/overview
 
 ## Animation with GSAP
 
-Pick the lightest tool that does the job:
+GSAP is the default animation library for every site, even a small one. Install it in each new web project and use it for entrance, scroll, and page-level motion. Plain CSS transitions are still fine for tiny hover and press states.
 
-- Simple state changes (hover, press, open/close, fade): CSS transitions or Tailwind `transition-*` utilities. No library.
-- Timelines, sequenced choreography, scroll-driven animation, pinning, Flip layout transitions, draggable, or SVG drawing: use GSAP.
+Choose the animation level from the use case (the user confirms it in the design intake):
+
+| Level | Use case | What to build |
+| --- | --- | --- |
+| **Subtle** | Dashboards, admin tools, docs, forms | Short fades and slides on load, smooth panel and route transitions, small stagger on lists |
+| **Moderate** | Marketing and product sites, SaaS landing pages | Staggered hero entrance, scroll reveals, a few ScrollTrigger moments, animated counters, hover polish |
+| **Expressive** | Portfolios, launches, illustrated, comic, webOS, 3D | Timelines, pinned scroll scenes, parallax, SVG drawing, Flip, split text, pointer-driven motion |
+
+Brand, tone, and audience can move the level up or down one step; say so when they do.
 
 When using GSAP, follow the official GreenSock skills: https://github.com/greensock/gsap-skills
 
@@ -44,9 +51,9 @@ When using GSAP, follow the official GreenSock skills: https://github.com/greens
 
 Install the skills once per machine with `npx skills add greensock/gsap-skills -g --all`. Install the packages following `../package-installation/npm.md`: `npm install gsap@latest`, plus `@gsap/react@latest` for React or Next.js.
 
-GSAP motion still follows the Material motion rules above:
+GSAP motion still follows the motion rules above:
 
-- Animate to explain a relationship or state change, never as decoration.
+- Animate to guide attention or explain a change; even at the expressive level, motion never hides content or blocks the task.
 - Keep durations short and do not block the task.
 - Respect `prefers-reduced-motion` through `gsap.matchMedia()`, with a no-motion or fade-only fallback.
 - Animate transforms and opacity, not layout properties.

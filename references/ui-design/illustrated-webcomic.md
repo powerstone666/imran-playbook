@@ -26,7 +26,7 @@ The illustration is the whole design. One soft, flat background colour, a tiny n
 
 ## Build rules
 
-1. **Art first.** The brief must say who the characters are before layout starts. Use art the user provides or approves. Never generate stand-in clip-art or hand-draw SVG characters. If there is no art yet, build the layout with clearly marked placeholders and say so.
+1. **Art first.** The brief must say who the characters are before layout starts. Follow `assets-and-brand.md`: use art the user provides, or generate original art if they chose AI. Never use stand-in clip-art. If the user is providing art and it is not here yet, build the layout with clearly marked slots and say so.
 2. **One palette from the art.** Take the background, ink, and 3 to 4 accent colours from the characters and define them as tokens (see `visual-system.md`). The UI chrome uses only the ink colour and the background.
 3. **Motion carries the personality.** Animate the characters (spring or idle loops, scroll-linked reveals) using the project's animation approach (see `interaction-accessibility.md`). Keep the UI around them still. Respect `prefers-reduced-motion` by showing a still pose.
 4. **Content on top of art stays readable.** Put text on the flat background area, or on a solid panel, never directly over busy art.

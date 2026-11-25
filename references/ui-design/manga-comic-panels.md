@@ -41,7 +41,7 @@ The page is built from comic panels, and a mascot character leads it. Headlines 
 ## Build rules
 
 1. **Tokens first:** navy ink, off-white paper, 4 to 5 accents, one border width, one offset-shadow size (in a colour, not blur), and one skew angle. Components use only these.
-2. **Art has a clear source.** Use user-supplied artwork when provided; otherwise create distinct original anime-style artwork with an available image-generation tool. Do not imitate a reference mascot or pass placeholder shapes off as finished character art. If image generation is unavailable, use clearly marked placeholders and state that the artwork remains to be created.
+2. **Art has a clear source.** Follow `assets-and-brand.md`: use user-supplied artwork when provided, or create distinct original anime-style artwork with an available image-generation tool when the user chose AI. Do not imitate a reference mascot or pass placeholder shapes off as finished character art. If image generation is unavailable, use clearly marked placeholders and state that the artwork remains to be created.
 3. **Panels are CSS.** Use `clip-path` or `transform: skew()` for angled panels, `repeating-conic-gradient` for speed lines, and `radial-gradient` for dots. Keep panel content readable by keeping text blocks un-skewed inside the skewed container.
 4. **Offset shadows are solid** (zero blur), and shift on press for the bouncy press in `components.md`.
 5. **Colour discipline:** each panel or card uses one accent family, and text on it is navy or white, whichever passes contrast.

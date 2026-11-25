@@ -15,6 +15,8 @@ Official foundations reference: https://m3.material.io/foundations
 
 ## Cutout navbar and content width
 
+The shell width (full-width app, about 70% centred, or 70% navbar over a full-width app) is chosen in the design intake and built as described in `modern-saas.md`. The cutout rules below apply inside whichever shell was chosen.
+
 The default navbar is the cutout navbar: inset from the screen edges (floating, with side margins and rounded corners), not a bar that touches the edges.
 
 - The page body aligns to the cutout: same left and right edges, same max width. Put the navbar and the content in one shared container, or one shared width token, so they cannot drift apart.
