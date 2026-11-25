@@ -32,9 +32,10 @@ Shape reference: https://m3.material.io/styles/shape/overview
 
 ## Images
 
-- For visual, promotional, anime, manga, or illustration-led UI, include artwork and a designed SVG background by default. Do not wait for the user to ask for images, provide finished art, or specify every decorative detail. Choose placements that support the content, especially the hero and other major visual sections. A deliberately minimal utility interface is the exception.
+- This applies to every UI, not only anime or illustrated ones. Ask the user who provides the images and SVG (they do, the AI does, or a mix) as set out in `assets-and-brand.md`, then include artwork and a designed SVG background accordingly. Choose placements that support the content, especially the hero and other major visual sections. A deliberately minimal utility interface is the exception.
+- Brands, companies, people, and profiles never get alphabet placeholders; see `assets-and-brand.md`.
 - Whenever generating images for a UI, make every image unique. Do not repeat or reuse the same image for multiple placements; give each image a distinct subject or composition.
-- Never leave a designed UI background blank. Use detailed, layered SVG elements and scene motifs that fit the chosen visual direction. Make the background rich and visually busy while keeping foreground content legible. Use SVG for scalable patterns, framing, and decorative scene elements; use image generation for character illustrations and detailed scenes when available.
+- Never leave a designed UI background blank. Use layered SVG elements that fit the chosen visual direction: subtle for Modern SaaS, richer for illustrated and anime styles. Keep foreground content legible. Use SVG for scalable patterns, framing, and decorative scene elements; use image generation for character illustrations and detailed scenes when available.
 
 Images that are not a background get colour grading so they feel part of the design, not pasted in. Background images follow the normal background rules and are not graded this way.
 

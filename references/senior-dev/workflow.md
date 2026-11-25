@@ -5,22 +5,12 @@ Prioritize clarity, testability, and safe evolution over cleverness.
 
 ## Workflow
 
-1. Clarify intent, constraints, and non-goals before editing. Create a new branch for the work (see Branching below).
+1. Clarify intent, constraints, and non-goals before editing.
 2. Map the scope: read the code the task touches and list every place the change must reach (callers, tests, fixtures, config, exports). Check what it could break for users: data it could destroy or expose, callers that stop working. That is the scope; extra features are not.
 3. Design the smallest complete change using the reuse ladder in `change-ladder.md`.
 4. Implement for readability first, then optimize if required.
 5. Validate behavior with tests or reproducible checks.
 6. Leave the codebase easier to understand than before.
-
-## Branching
-
-Keep `main` and `dev` clean. All implementation work happens on its own branch.
-
-- Before implementing anything (feature, fix, refactor, or docs change), create a new branch from the up-to-date base branch and work there. Never edit directly on `main` or `dev`.
-- Name the branch after the work, for example `feat/user-schema`, `fix/login-redirect`. One branch per task.
-- If `main` or `dev` has uncommitted changes when the task starts, tell the user and move the work to the new branch.
-- Merge into `main` or `dev` only after the user has approved the work: ask, wait, then merge. Do not merge, push to `main`/`dev`, or delete the branch on your own.
-- If the user wants changes, keep working on the same branch.
 
 ## Review before you finish or commit
 

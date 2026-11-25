@@ -1,6 +1,6 @@
 # Material 3 Web UI Rules
 
-Use this when building or reviewing web UI that should follow Material Design 3 or a Pixel-inspired look with Tailwind CSS. Read `material-design-3.md` first. For a web page that mocks an Android phone screen, also read `pixel-android.md`.
+Use this for every web UI, in every style. It is the Tailwind and web implementation of the rules in `material-design-3.md` (read that first): the AI-slop list, tokens, layout checklist, and first-page rule below apply to all web projects. The Pixel-inspired look is one optional style on top; for a web page that mocks an Android phone screen, also read `pixel-android.md`. For the default look, add `modern-saas.md`.
 
 Apply it to avoid generic AI-generated websites, overused gradients, glassmorphism, random cards, poor spacing, weak hierarchy, and inaccessible components.
 
@@ -19,7 +19,7 @@ Do not use:
 - Random purple/blue gradients.
 - Glassmorphism.
 - Excessive shadows.
-- Generic SaaS hero sections.
+- Generic template hero sections (see `modern-saas.md` for what to do instead).
 - Floating blobs.
 - Fake dashboards filled with made-up metrics that do not reflect the product.
 - Oversized glowing buttons.
@@ -32,7 +32,7 @@ Do not use:
 
 ## Material 3 visual rules
 
-Use:
+These restate the required rules in `material-design-3.md` for web. Use:
 
 - Soft but intentional rounded corners.
 - Clear surface hierarchy.
